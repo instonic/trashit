@@ -29,6 +29,12 @@ This Flutter web application is automatically deployed to Firebase Hosting via G
 
 Built with FlutterFlow (Dreamflow) and deployed automatically on every push to main branch.
 
+## 🔐 Security
+
+- GitHub secrets configured for secure deployment
+- Firebase service account properly set up
+- API keys secured and not exposed in code
+
 ---
 
-**Status**: ✅ Ready for deployment
+**Status**: ✅ Ready for deployment with secrets configured
