@@ -43,41 +43,38 @@ class DefaultFirebaseOptions {
     }
   }
 
-  // SECURITY: These values should be replaced with your actual Firebase config
-  // Get these from: Firebase Console → Project Settings → General → Your apps
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'YOUR_WEB_API_KEY_HERE', // Replace with your actual web API key
-    appId: 'YOUR_WEB_APP_ID_HERE',   // Replace with your actual web app ID
-    messagingSenderId: 'YOUR_SENDER_ID_HERE', // Replace with your sender ID
+    apiKey: 'AIzaSyB3SH2qCdtyKwx7LHLlOkU5SaR4tu1GHHw',
+    appId: '1:687008024925:web:24e3ea99219826eca380b4',
+    messagingSenderId: '687008024925',
     projectId: 'o6hxc54nwwi030f8y17tsfe3qxhlt5',
     authDomain: 'o6hxc54nwwi030f8y17tsfe3qxhlt5.firebaseapp.com',
-    storageBucket: 'o6hxc54nwwi030f8y17tsfe3qxhlt5.appspot.com',
-    measurementId: 'YOUR_MEASUREMENT_ID_HERE', // Replace with your measurement ID
+    storageBucket: 'o6hxc54nwwi030f8y17tsfe3qxhlt5.firebasestorage.app',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'YOUR_ANDROID_API_KEY_HERE', // Replace with your Android API key
-    appId: 'YOUR_ANDROID_APP_ID_HERE',   // Replace with your Android app ID
-    messagingSenderId: 'YOUR_SENDER_ID_HERE',
+    apiKey: 'AIzaSyB3SH2qCdtyKwx7LHLlOkU5SaR4tu1GHHw',
+    appId: '1:687008024925:android:24e3ea99219826eca380b4',
+    messagingSenderId: '687008024925',
     projectId: 'o6hxc54nwwi030f8y17tsfe3qxhlt5',
-    storageBucket: 'o6hxc54nwwi030f8y17tsfe3qxhlt5.appspot.com',
+    storageBucket: 'o6hxc54nwwi030f8y17tsfe3qxhlt5.firebasestorage.app',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'YOUR_IOS_API_KEY_HERE',     // Replace with your iOS API key
-    appId: 'YOUR_IOS_APP_ID_HERE',       // Replace with your iOS app ID
-    messagingSenderId: 'YOUR_SENDER_ID_HERE',
+    apiKey: 'AIzaSyB3SH2qCdtyKwx7LHLlOkU5SaR4tu1GHHw',
+    appId: '1:687008024925:ios:24e3ea99219826eca380b4',
+    messagingSenderId: '687008024925',
     projectId: 'o6hxc54nwwi030f8y17tsfe3qxhlt5',
-    storageBucket: 'o6hxc54nwwi030f8y17tsfe3qxhlt5.appspot.com',
+    storageBucket: 'o6hxc54nwwi030f8y17tsfe3qxhlt5.firebasestorage.app',
     iosBundleId: 'com.instonic.trashit',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'YOUR_MACOS_API_KEY_HERE',   // Replace with your macOS API key
-    appId: 'YOUR_MACOS_APP_ID_HERE',     // Replace with your macOS app ID
-    messagingSenderId: 'YOUR_SENDER_ID_HERE',
+    apiKey: 'AIzaSyB3SH2qCdtyKwx7LHLlOkU5SaR4tu1GHHw',
+    appId: '1:687008024925:macos:24e3ea99219826eca380b4',
+    messagingSenderId: '687008024925',
     projectId: 'o6hxc54nwwi030f8y17tsfe3qxhlt5',
-    storageBucket: 'o6hxc54nwwi030f8y17tsfe3qxhlt5.appspot.com',
+    storageBucket: 'o6hxc54nwwi030f8y17tsfe3qxhlt5.firebasestorage.app',
     iosBundleId: 'com.instonic.trashit',
   );
 }
