@@ -1,0 +1,37 @@
+Subtitle (max ~30 chars)
+Trash the noise. Stay sane.
+
+Promotional text (for updates; ~170 chars)
+A neutral, community-led way to call out bad content. Paste a link, vote Retrash/Untrash, and see what’s Trending — opinions, not endorsements.
+
+Description
+TRASHIT is a public, tongue-in-cheek garbage bin for the internet. Share a link, skim a quick context, and let the crowd vote: Retrash (agree it’s trash) or Untrash (disagree). The Trending tab highlights what people are reacting to right now.
+
+Neutral by design
+• Posts and reactions reflect community views, not our endorsements
+• Transparent counts, simple rules, and one-time Undo
+• Optional AI quips to summarize “why it feels trash”
+
+What you can do
+• Dump low-effort clickbait, scams, grifts, and time-wasters
+• Untrash signal over noise to uplift what helps
+• Report abuse or copyright issues from the ••• menu
+
+Community guidelines (short)
+• Don’t post illegal content, doxxing, or credible threats
+• No hate speech or harassment — critique ideas, not people
+• Respect copyrights; use the Report menu for DMCA or abuse
+
+Privacy basics
+• No accounts required
+• Anonymous device ID to help prevent duplicate voting
+• Optional, consent-based analytics and coarse demographics
+
+Platform neutrality
+TRASHIT doesn’t take sides. Trending shows what people are reacting to, not what we endorse. We host user-generated content and moderate for safety.
+
+Availability
+Some features (database, analytics, AI summaries) require connecting a backend through your Dreamflow Firebase panel.
+
+Support
+support@trashit.live

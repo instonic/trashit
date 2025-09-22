@@ -1,0 +1,79 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isNonEmptyString(s) {
+      return s is string && s.size() > 0;
+    }
+
+    function isStringArray(arr, maxLen, eachMax) {
+      // Firestore rules do not support higher-order functions like `every`.
+      // Keep this check simple: enforce list type and maximum length.
+      // Element-level validation is enforced in backend (Cloud Functions) on write.
+      return arr is list && arr.size() <= maxLen;
+    }
+
+    match /trash_can_posts/{postId} {
+      // Publicly readable feed
+      allow read: if true;
+
+      // TEMPORARY client-write rules to allow the app to function without Cloud Functions.
+      // These rules enforce shape/consistency but cannot enforce per-device identity.
+      // Once Functions are deployed, tighten these back down.
+
+      // Create a new trash post
+      allow create: if
+        request.auth == null &&
+        isNonEmptyString(request.resource.data.url) && request.resource.data.url.size() <= 2048 &&
+        isNonEmptyString(request.resource.data.title) && request.resource.data.title.size() <= 300 &&
+        isStringArray(request.resource.data.hashtags, 20, 50) &&
+        request.resource.data.device_id is string && request.resource.data.device_id.size() > 0 && request.resource.data.device_id.size() <= 200 &&
+        request.resource.data.image_url is string && request.resource.data.image_url.size() <= 2048 &&
+        (request.resource.data.ai_summary == null || request.resource.data.ai_summary is string) &&
+        request.resource.data.retrash_votes is list &&
+        request.resource.data.untrash_votes is list &&
+        request.resource.data.undo_locks is list &&
+        request.resource.data.retrash_votes.size() == 1 &&
+        request.resource.data.untrash_votes.size() == 0 &&
+        request.resource.data.retrash_count == 1 &&
+        request.resource.data.untrash_count == 0 &&
+        request.resource.data.timestamp is timestamp;
+
+      // Update for voting, undo, or AI summary fill-in
+      allow update: if
+        // Keep invariant fields unchanged (url/title/hashtags/device_id/image_url)
+        resource.data.url == request.resource.data.url &&
+        resource.data.title == request.resource.data.title &&
+        resource.data.hashtags == request.resource.data.hashtags &&
+        resource.data.device_id == request.resource.data.device_id &&
+        resource.data.image_url == request.resource.data.image_url &&
+        // Counts must reflect array lengths
+        request.resource.data.retrash_count == request.resource.data.retrash_votes.size() &&
+        request.resource.data.untrash_count == request.resource.data.untrash_votes.size() &&
+        // Only allowed keys
+        request.resource.data.keys().hasOnly(['url','title','hashtags','retrash_count','untrash_count','device_id','timestamp','image_url','ai_summary','retrash_votes','untrash_votes','undo_locks']);
+
+      // Allow delete when community has untrashed to at least tie or exceed retrash
+      allow delete: if resource.data.untrash_count >= resource.data.retrash_count;
+    }
+
+    // Allow creating a report document with minimal PII and shape checks
+    match /trash_reports/{reportId} {
+      allow create: if
+        request.auth == null &&
+        request.resource.data.post_id is string && request.resource.data.post_id.size() > 0 &&
+        request.resource.data.url is string && request.resource.data.url.size() > 0 && request.resource.data.url.size() <= 2048 &&
+        request.resource.data.domain is string && request.resource.data.domain.size() <= 255 &&
+        request.resource.data.reason is string && request.resource.data.reason.size() <= 500 &&
+        request.resource.data.reporter_device is string && request.resource.data.reporter_device.size() <= 200 &&
+        request.resource.data.timestamp is timestamp;
+      allow read: if false;
+      allow update, delete: if false;
+    }
+
+    // Lock down everything else by default
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

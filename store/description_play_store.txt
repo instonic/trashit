@@ -1,0 +1,37 @@
+Short description (80 chars max)
+Trash the noise. Vote Retrash/Untrash on links. Neutral, witty, community-led.
+
+Full description
+TRASHIT is your digital garbage bin for the internet. Paste a link. Get a witty context. Retrash (agree it’s trash) or Untrash (disagree). See what’s Trending without the doomscroll.
+
+Why people love it
+• Neutral by design: posts reflect community reactions, not editorial endorsements
+• One-tap sharing from any app
+• Clean, fast feed with Recent and Trending views
+• Transparent counts and simple rules — one vote per device per post with a one-time Undo
+• Optional AI quips for a quick “why this feels trash” moment
+
+What you can do
+• Dump low-effort clickbait, scams, grifts, cringe takes, or anything that wastes people’s time
+• Untrash good-faith work and surface what actually helps
+• Report abuse in a tap — we take safety seriously
+
+Community guidelines (short)
+• Don’t post illegal content, doxxing, or credible threats
+• No hate speech or harassment — critique ideas, not people
+• Respect copyrights; use the Report menu for DMCA or abuse
+
+Platform neutrality
+TRASHIT doesn’t take sides. Trending shows what people are reacting to, not what we endorse. We host user-generated content and moderate for safety.
+
+Privacy basics
+• No accounts required
+• Anonymous device ID to prevent duplicate voting
+• Optional, consent-based analytics and coarse demographics
+
+Notes
+• Some features (database, analytics, AI summaries) require connecting a backend in your Dreamflow Firebase panel.
+• This app may not be available to minors depending on regional law.
+
+Contact
+support@trashit.live

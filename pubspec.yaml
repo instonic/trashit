@@ -1,0 +1,38 @@
+name: trashit
+description: "\\\"TRASHIT\\\" is a dynamic social sharing app where users \\\"trash\\\" content, vote on its worth, and discover trending topics, all powered by AI-generated \\\"Why It's Trash\\\" summaries."
+publish_to: "none"
+version: 1.0.0
+
+environment:
+  sdk: ^3.6.0
+
+dependencies:
+  share_plus: ^12.0.0
+  firebase_analytics: ^12.0.0
+  share_handler: 0.0.25
+  cloud_functions: ^6.0.0
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  google_fonts: ^6.1.0
+  firebase_core: ^4.1.0
+  cloud_firestore: '>=5.5.0'
+  uuid: ^4.0.0
+  shared_preferences: ^2.0.0
+  receive_sharing_intent: ^1.0.0
+  http: ^1.0.0
+  url_launcher: ^6.0.0
+  html: 0.15.6
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+
+flutter:
+  uses-material-design: true
+  
+  assets:
+    - assets/images/

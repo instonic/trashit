@@ -1,0 +1,67 @@
+{
+  "project_info": {
+    "project_number": "687008024925",
+    "project_id": "o6hxc54nwwi030f8y17tsfe3qxhlt5",
+    "storage_bucket": "o6hxc54nwwi030f8y17tsfe3qxhlt5.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:687008024925:android:4ce6fba291e5b5f0a380b4",
+        "android_client_info": {
+          "package_name": "app.trashit.online"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBb62nxEn62DYZEzO0Lrxl478aegrwLrzI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:687008024925:android:74d7d0ee05d20f1aa380b4",
+        "android_client_info": {
+          "package_name": "com.mycompany.CounterApp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBb62nxEn62DYZEzO0Lrxl478aegrwLrzI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:687008024925:android:c409cc6aefdfc5eea380b4",
+        "android_client_info": {
+          "package_name": "com.trashit.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBb62nxEn62DYZEzO0Lrxl478aegrwLrzI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

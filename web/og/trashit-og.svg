@@ -1,0 +1,16 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#E53E3E"/>
+  <g>
+    <text x="60" y="200" font-family="Inter, Arial, sans-serif" font-weight="800" font-size="120" fill="#ffffff" letter-spacing="2">TRASHIT</text>
+    <text x="60" y="260" font-family="Inter, Arial, sans-serif" font-weight="600" font-size="36" fill="#FFD7D7">trashit.live</text>
+  </g>
+  <g>
+    <rect x="60" y="320" rx="16" ry="16" width="1080" height="220" fill="#FFFFFF" fill-opacity="0.12" stroke="rgba(255,255,255,0.35)"/>
+    <text x="90" y="380" font-family="Inter, Arial, sans-serif" font-weight="700" font-size="44" fill="#ffffff">Share links. Roast clickbait. Vote trash or untrash.</text>
+    <text x="90" y="430" font-family="Inter, Arial, sans-serif" font-weight="500" font-size="28" fill="#FFE8E8">AI-powered "Why it's Trash" in one witty line.</text>
+  </g>
+  <g>
+    <circle cx="1060" cy="120" r="40" fill="#ffffff"/>
+    <path d="M1075 115h-30l-3 5h36l-3-5zm-4 10v20a8 8 0 0 1-8 8h-6a8 8 0 0 1-8-8v-20h22z" fill="#E53E3E"/>
+  </g>
+</svg>

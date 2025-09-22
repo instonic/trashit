@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!--
+    If you are serving your web app in a path other than the root, change the
+    href value below to reflect the base path you are serving from.
+
+    The path provided below has to start and end with a slash "/" in order for
+    it to work correctly.
+
+    For more details:
+    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
+
+    This is a placeholder for base href that will be replaced by the value of
+    the `--base-href` argument provided to `flutter build`.
+  -->
+  <base href="$FLUTTER_BASE_HREF">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="Trashit • Share links, roast clickbait with witty AI summaries, and vote to re-trash or untrash.">
+
+  <!-- iOS meta tags & icons -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Trashit">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png"/>
+
+  <title>Trashit</title>
+  
+  <!-- Canonical URL and social meta for the deployed domain -->
+  <link rel="canonical" href="https://trashit.live/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Trashit">
+  <meta property="og:site_name" content="Trashit">
+  <meta property="og:description" content="Share links, roast clickbait with witty AI summaries, and vote to re-trash or untrash.">
+  <meta property="og:url" content="https://trashit.live/">
+  <meta property="og:image" content="/og/trashit-og.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Trashit">
+  <meta name="twitter:description" content="Share links, roast clickbait with witty AI summaries, and vote to re-trash or untrash.">
+  <meta name="twitter:image" content="/og/trashit-og.svg">
+
+  <link rel="manifest" href="manifest.json">
+
+  <script>
+    // Temporary host redirect until Hosting-level 301s are configured.
+    // Canonical host: trashit.live (no-www).
+    (function() {
+      try {
+        var host = window.location.host.toLowerCase();
+        var pathAndQuery = window.location.pathname + window.location.search + window.location.hash;
+
+        // Redirect from www subdomain to apex
+        if (host === 'www.trashit.live') {
+          window.location.replace('https://trashit.live' + pathAndQuery);
+          return;
+        }
+
+        // Redirect any Dreamflow shared preview links to the canonical domain once live
+        if (host.endsWith('.share.dreamflow.app')) {
+          window.location.replace('https://trashit.live' + pathAndQuery);
+          return;
+        }
+
+        // Redirect Firebase default domains to the canonical domain
+        if (host.endsWith('.web.app') || host.endsWith('.firebaseapp.com')) {
+          window.location.replace('https://trashit.live' + pathAndQuery);
+          return;
+        }
+      } catch (e) { /* no-op */ }
+    })();
+  </script>
+
+  <script>
+    // Register a tiny service worker dedicated to Web Share Target handling.
+    // It uses a separate scope (/share-target/) so it won't interfere with the
+    // Flutter-generated service worker that caches app assets.
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        try {
+          navigator.serviceWorker.register('/share_target_sw.js', { scope: '/share-target/' });
+        } catch (e) {
+          // no-op
+        }
+      });
+    }
+  </script>
+<meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Trashit • Social preview card">
+  <meta name="twitter:image:alt" content="Trashit • Social preview card">
+</head>
+<body>
+  <script src="flutter_bootstrap.js" async></script>
+</body>
+</html>
