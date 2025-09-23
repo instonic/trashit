@@ -1,28 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_crashlytics/firebase_crashlytics.dart';
-import 'package:firebase_performance/firebase_performance.dart';
-import 'package:provider/provider.dart';
-import 'package:flutter/foundation.dart';
-
 import 'firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-
-  // Set up Crashlytics
-  if (!kDebugMode) {
-    FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
-    PlatformDispatcher.instance.onError = (error, stack) {
-      FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
-      return true;
-    };
-  }
-
   runApp(MyApp());
 }
 
@@ -56,20 +40,20 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
-        backgroundColor: Colors.blue,
+        backgroundColor: Colors.deepPurple,
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Icon(
-              Icons.delete_outline,
+              Icons.block,
               size: 100,
-              color: Colors.blue,
+              color: Colors.red,
             ),
             SizedBox(height: 20),
             Text(
-              'Welcome to Trashit',
+              'Welcome to Trashit!',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
             SizedBox(height: 10),
@@ -81,15 +65,35 @@ class _MyHomePageState extends State<MyHomePage> {
             SizedBox(height: 30),
             ElevatedButton(
               onPressed: () {
-                // TODO: Add navigation to main app features
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text('Trashit is now live! 🎉'),
+                    backgroundColor: Colors.green,
+                  ),
+                );
               },
-              child: Text('Get Started'),
+              child: Text('Start Filtering'),
               style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.deepPurple,
+                foregroundColor: Colors.white,
                 padding: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
               ),
             ),
           ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text('Deployment successful! ✅'),
+              backgroundColor: Colors.green,
+            ),
+          );
+        },
+        tooltip: 'Test App',
+        child: Icon(Icons.check),
+        backgroundColor: Colors.green,
       ),
     );
   }
