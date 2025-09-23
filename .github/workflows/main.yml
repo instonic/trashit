@@ -52,7 +52,7 @@ jobs:
         run: |
           echo '${{ secrets.FIREBASE_SERVICE_ACCOUNT }}' > $HOME/firebase-service-account.json
 
-      - name: Deploy to Firebase Hosting
+      - name: Deploy to Firebase Hosting (hosting only)
         run: |
           export GOOGLE_APPLICATION_CREDENTIALS=$HOME/firebase-service-account.json
-          firebase deploy --only hosting --project o6hxc54nwwi030f8y17tsfe3qxhlt5 --non-interactive
+          firebase deploy --only hosting --project o6hxc54nwwi030f8y17tsfe3qxhlt5 --non-interactive --force
