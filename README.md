@@ -35,6 +35,12 @@ Built with FlutterFlow (Dreamflow) and deployed automatically on every push to m
 - Firebase service account properly set up
 - API keys secured and not exposed in code
 
+## 🔄 Deployment
+
+- **Service Account**: Firebase permissions updated
+- **Build Status**: Testing with updated permissions
+- **Target**: trashit.live
+
 ---
 
-**Status**: ✅ Ready for deployment with secrets configured
+**Status**: ✅ Deploying with updated Firebase permissions
