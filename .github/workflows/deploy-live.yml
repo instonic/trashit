@@ -1,5 +1,6 @@
+# Deploy to Firebase Hosting
 name: Deploy to Live
-on:
+'on':
   push:
     branches:
       - main
@@ -7,18 +8,18 @@ jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: 'Install Flutter'
-        uses: subosito/flutter-action@v1
+      - uses: actions/checkout@v4
+      - name: 'Set up Flutter'
+        uses: subosito/flutter-action@v2
         with:
-          flutter-version: '2.x'
-      - name: 'Build Web'
-        run: |
-          flutter pub get
-          flutter build web
+          flutter-version: '3.19.0' # This forces the use of a modern Dart SDK
+          channel: 'stable'
+      - name: 'Build Flutter App'
+        run: flutter build web --dart-define=OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}
       - name: 'Deploy to Firebase'
-        uses: w9jds/firebase-action@master
+        uses: FirebaseExtended/action-hosting-deploy@v0
         with:
-          args: deploy --only hosting
-        env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_TRASHIT_E494A }}'
+          channelId: live
+          projectId: trashit-e494a
