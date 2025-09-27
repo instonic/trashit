@@ -72,7 +72,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 );
               },
-              child: Text('Start Filtering'),
+              child: Text('Begin'),
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.deepPurple,
                 foregroundColor: Colors.white,
