@@ -2,9 +2,11 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
-// We will use this package to make API calls
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+
+// Securely access the API key provided at compile time
+const String openAiApiKey = String.fromEnvironment('OPENAI_API_KEY');
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -22,7 +24,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.deepPurple,
         visualDensity: VisualDensity.adaptivePlatformDensity,
-        brightness: Brightness.dark, // Use a dark theme
+        brightness: Brightness.dark,
       ),
       home: MyHomePage(title: 'Trashit - Analyze & Reject'),
       debugShowCheckedModeBanner: false,
@@ -45,19 +47,68 @@ class _MyHomePageState extends State<MyHomePage> {
   bool _isLoading = false;
 
   Future<void> _analyzeText() async {
-    // Show a loading indicator
+    if (_textController.text.isEmpty) {
+      setState(() {
+        _analysisResult = 'Please enter some text to analyze.';
+      });
+      return;
+    }
+
+    // This is a critical check. If the API key wasn't provided during the build,
+    // the app will fail gracefully instead of making a broken request.
+    if (openAiApiKey.isEmpty) {
+      setState(() {
+        _analysisResult = 'Error: The OPENAI_API_KEY was not provided during the build process. The application developer must configure this.';
+      });
+      return;
+    }
+
     setState(() {
       _isLoading = true;
       _analysisResult = '';
     });
 
-    // Simulate a network request for now
-    // In the next step, we will replace this with a real API call
-    await Future.delayed(const Duration(seconds: 2));
+    try {
+      final response = await http.post(
+        Uri.parse('https://api.openai.com/v1/chat/completions'),
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer $openAiApiKey',
+        },
+        body: jsonEncode({
+          'model': 'gpt-3.5-turbo',
+          'messages': [
+            {
+              'role': 'system',
+              'content': 'You are a content moderation expert. Analyze the following text for negativity, hate speech, or misinformation. Summarize your findings in a brief, clear, and concise manner. Start your response with one of three labels: [SAFE], [NEGATIVE], or [HATE_SPEECH].'
+            },
+            {
+              'role': 'user',
+              'content': _textController.text,
+            }
+          ],
+          'max_tokens': 150,
+        }),
+      );
 
-    // Hide the loading indicator and show the result
+      if (response.statusCode == 200) {
+        final data = jsonDecode(response.body);
+        setState(() {
+          _analysisResult = data['choices'][0]['message']['content'].trim();
+        });
+      } else {
+        // Provide more detailed error information for debugging
+        setState(() {
+          _analysisResult = 'Error: Failed to get analysis. Status code: ${response.statusCode}\nResponse Body: ${response.body}';
+        });
+      }
+    } catch (e) {
+      setState(() {
+        _analysisResult = 'An unexpected error occurred: $e';
+      });
+    }
+
     setState(() {
-      _analysisResult = 'Analysis complete! (This is a placeholder result.)';
       _isLoading = false;
     });
   }
@@ -71,7 +122,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Center(
         child: Container(
-          constraints: BoxConstraints(maxWidth: 600), // Max width for the content
+          constraints: BoxConstraints(maxWidth: 600),
           padding: const EdgeInsets.all(24.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -102,7 +153,6 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
               SizedBox(height: 30),
-              // Show loading circle or analysis result
               if (_isLoading)
                 CircularProgressIndicator()
               else if (_analysisResult.isNotEmpty)
