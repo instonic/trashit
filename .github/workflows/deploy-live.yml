@@ -1,0 +1,24 @@
+name: Deploy to Live
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: 'Install Flutter'
+        uses: subosito/flutter-action@v1
+        with:
+          flutter-version: '2.x'
+      - name: 'Build Web'
+        run: |
+          flutter pub get
+          flutter build web
+      - name: 'Deploy to Firebase'
+        uses: w9jds/firebase-action@master
+        with:
+          args: deploy --only hosting
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}

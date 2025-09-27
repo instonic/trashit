@@ -1,0 +1,1 @@
+ build/web/manifest.json:  /home/user/trashit/web/index.html /home/user/trashit/web/manifest.json
