@@ -37,10 +37,9 @@ Built with FlutterFlow (Dreamflow) and deployed automatically on every push to m
 
 ## 🔄 Deployment
 
-- **Service Account**: Firebase permissions updated
-- **Build Status**: Testing with updated permissions
-- **Target**: trashit.live
+- **Status**: ✅ All deployment issues resolved. Live on trashit.live.
+- **CI/CD**: Fully operational. A new build is triggered on every push to `main`.
 
 ---
 
-**Status**: ✅ Deploying with updated Firebase permissions
+**Status**: ✅ Live and operational.
