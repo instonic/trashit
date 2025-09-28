@@ -1,27 +1,27 @@
-# Deploy to Firebase Hosting
-name: Deploy to Live
-'on':
+name: Deploy to Firebase Hosting on Main
+
+on:
   push:
     branches:
       - main
+
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: 'Set up Flutter'
+      - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.19.0'
           channel: 'stable'
-      - name: 'Install dependencies'
+      - name: Install dependencies
         run: flutter pub get
-      - name: 'Build Flutter App'
-        run: flutter build web --dart-define=OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}
-      - name: 'Deploy to Firebase'
+      - name: Build web app
+        run: flutter build web --release
+      - name: Deploy to Firebase
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_TRASHIT_E494A }}'
+          projectId: trashit-e494a
           channelId: live
-          projectId: o6hxc54nwwi030f8y17tsfe3qxhlt5
