@@ -12,8 +12,10 @@ jobs:
       - name: 'Set up Flutter'
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.19.0' # This forces the use of a modern Dart SDK
+          flutter-version: '3.19.0'
           channel: 'stable'
+      - name: 'Install dependencies'
+        run: flutter pub get
       - name: 'Build Flutter App'
         run: flutter build web --dart-define=OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}
       - name: 'Deploy to Firebase'
