@@ -36,10 +36,3 @@ Built with FlutterFlow (Dreamflow) and deployed automatically on every push to m
 - API keys secured and not exposed in code
 
 ## 🔄 Deployment
-
-- **Status**: ✅ All deployment issues resolved. Live on trashit.live.
-- **CI/CD**: Fully operational. A new build is triggered on every push to `main`.
-
----
-
-**Status**: ✅ Live and operational.
