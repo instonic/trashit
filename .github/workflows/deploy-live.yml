@@ -22,10 +22,13 @@ jobs:
       - name: Build web app
         run: flutter build web --release
 
-      - name: Deploy to Firebase Hosting
-        uses: w9jds/firebase-action@v2.2.0
+      - name: Authenticate with Firebase
+        uses: 'google-github-actions/auth@v2'
         with:
-          args: deploy --only hosting
-        env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-          PROJECT_ID: o6hxc54nwwi030f8y17tsfe3qxhlt5
+          credentials_json: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}'
+
+      - name: Deploy to Firebase Hosting
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          projectId: o6hxc54nwwi030f8y17tsfe3qxhlt5
+          channelId: live
