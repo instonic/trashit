@@ -45,7 +45,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions web = FirebaseOptions(
     apiKey: 'AIzaSyB3SH2qCdtyKwx7LHLlOkU5SaR4tu1GHHw',
-    appId: '1:687008024925:web:24e3ea99219826eca380b4',
+    appId: '1:687008024925:web:6ab73098be4c3f39a380b4',
     messagingSenderId: '687008024925',
     projectId: 'o6hxc54nwwi030f8y17tsfe3qxhlt5',
     authDomain: 'o6hxc54nwwi030f8y17tsfe3qxhlt5.firebaseapp.com',
@@ -54,7 +54,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyB3SH2qCdtyKwx7LHLlOkU5SaR4tu1GHHw',
-    appId: '1:687008024925:android:24e3ea99219826eca380b4',
+    appId: '1:687008024925:android:6ab73098be4c3f39a380b4',
     messagingSenderId: '687008024925',
     projectId: 'o6hxc54nwwi030f8y17tsfe3qxhlt5',
     storageBucket: 'o6hxc54nwwi030f8y17tsfe3qxhlt5.firebasestorage.app',
@@ -62,7 +62,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyB3SH2qCdtyKwx7LHLlOkU5SaR4tu1GHHw',
-    appId: '1:687008024925:ios:24e3ea99219826eca380b4',
+    appId: '1:687008024925:ios:6ab73098be4c3f39a380b4',
     messagingSenderId: '687008024925',
     projectId: 'o6hxc54nwwi030f8y17tsfe3qxhlt5',
     storageBucket: 'o6hxc54nwwi030f8y17tsfe3qxhlt5.firebasestorage.app',
@@ -71,7 +71,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions macos = FirebaseOptions(
     apiKey: 'AIzaSyB3SH2qCdtyKwx7LHLlOkU5SaR4tu1GHHw',
-    appId: '1:687008024925:macos:24e3ea99219826eca380b4',
+    appId: '1:687008024925:macos:6ab73098be4c3f39a380b4',
     messagingSenderId: '687008024925',
     projectId: 'o6hxc54nwwi030f8y17tsfe3qxhlt5',
     storageBucket: 'o6hxc54nwwi030f8y17tsfe3qxhlt5.firebasestorage.app',
